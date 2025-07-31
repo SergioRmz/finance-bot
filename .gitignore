@@ -1,1 +1,10 @@
+# Ignorar archivos de variables de entorno locales
 .env
+
+# Ignorar directorios de datos de Docker
+n8n-data/
+postgres-data/
+
+# Otros (dependiendo del sistema operativo)
+.DS_Store
+node_modules/
