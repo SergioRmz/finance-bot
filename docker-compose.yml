@@ -16,12 +16,13 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.n8n.rule=Host(`${N8N_DOMAIN}`)"
-      - "traefik.http.routers.n8n.entrypoints=websecure"
-      - "traefik.http.routers.n8n.service=n8n"
-      - "traefik.http.services.n8n.loadbalancer.server.port=5678"
-      - "traefik.http.routers.n8n.tls.certresolver=myresolver"
-    
+      - "traefik.http.routers.n8n-finance.rule=Host(`${N8N_DOMAIN}`)"
+      - "traefik.http.routers.n8n-finance.entrypoints=websecure"
+      - "traefik.http.routers.n8n-finance.service=n8n"
+      - "traefik.http.services.n8n-finance.loadbalancer.server.port=5678"
+      - "traefik.http.routers.n8n-finance.tls.certresolver=myresolver"
+      - "traefik.docker.network=vps-monitoring_default"
+
   db:
     image: postgres:15-alpine
     container_name: personal-finance-db
@@ -41,4 +42,4 @@ services:
 networks:
   app-network:
     external: true
-    name: vps-monitoring_app-network # Usamos la red de la aplicación existente
+    name: vps-monitoring_default # Usamos la red de la aplicación traefik existente
