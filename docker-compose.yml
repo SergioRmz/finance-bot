@@ -16,12 +16,11 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=vps-monitoring_default"
       - "traefik.http.routers.n8n-finance.rule=Host(`${N8N_DOMAIN}`)"
       - "traefik.http.routers.n8n-finance.entrypoints=websecure"
-      - "traefik.http.routers.n8n-finance.service=n8n"
-      - "traefik.http.services.n8n-finance.loadbalancer.server.port=5678"
       - "traefik.http.routers.n8n-finance.tls.certresolver=myresolver"
-      - "traefik.docker.network=vps-monitoring_default"
+      - "traefik.http.services.n8n-finance.loadbalancer.server.port=5678"
 
   db:
     image: postgres:15-alpine
