@@ -1,2 +1,2 @@
-# finance-bot
-Repositorio para la creación de un flujo que permita que una IA clasifique y almacene gastos
+# vps-monitoring
+Repositorio para el monitoreo de una infraestructura VPS haciendo uso de n8n.
