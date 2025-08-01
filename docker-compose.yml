@@ -13,7 +13,7 @@ services:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - WEBHOOK_URL=${N8N_DOMAIN}/
     volumes:
-      - ${N8N_DATA_FOLDER}:/home/node/.n8n
+      - n8n_finance_data:/home/node/.n8n
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=vps-monitoring_default"
@@ -46,3 +46,6 @@ networks:
   app-network:
     external: true
     name: vps-monitoring_default # Usamos la red de la aplicación traefik existente
+
+volumes:
+  n8n_finance_data:
