@@ -13,7 +13,7 @@ services:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - WEBHOOK_URL=${N8N_DOMAIN}/
     volumes:
-      - ${DATA_FOLDER}:/home/node/.n8n
+      - ${N8N_DATA_FOLDER}:/home/node/.n8n
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=vps-monitoring_default"
